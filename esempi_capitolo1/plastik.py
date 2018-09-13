@@ -1,8 +1,10 @@
-"""ESEMPIO TRATTO DA: ESERCIZI RISOLTI DI RICERCA OPERATIVA """
-"""ESEMPIO 1.1 PAG 2"""
 
 from __future__ import print_function
 from ortools.linear_solver import pywraplp
+
+"""ESEMPIO TRATTO DA: ESERCIZI RISOLTI DI RICERCA OPERATIVA """
+"""ESEMPIO 1.1 PAG 2"""
+
 
 def main():
     # Istanzio Glop solver, naming it LinearExample.
