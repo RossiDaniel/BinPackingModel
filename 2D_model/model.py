@@ -1,17 +1,23 @@
 from __future__ import print_function
 from ortools.linear_solver import pywraplp
+import timeit
 
 def model2D(packages,cargo):
     solver = pywraplp.Solver('Model2D', pywraplp.Solver.CBC_MIXED_INTEGER_PROGRAMMING)
     # importo dimensioni dei pacchi e del camion
-    M=1000
     n=len(packages)
 
     w =[packages[i].getW() for i in range(n)]
     d =[packages[i].getD() for i in range(n)]
 
+    print(w)
+    print(d)
+
     W =cargo.getW()
     D =solver.IntVar(0,solver.infinity(),"D")
+
+    Md=sum(d)
+    Mw=W+min(w)
 
     # definisco le variabili
     l =[[solver.BoolVar("l%d%d" % (i,j)) for i in range(n)] for j in range(n)]
@@ -24,13 +30,13 @@ def model2D(packages,cargo):
     for i in range(n):
         for j in range(n):
             if(i < j):
-                solver.Add(l[i][j] + l[j][i] + b[i][j] + b[j][i] >= 1)
+                solver.Add(l[i][j] + l[j][i] + b[i][j] + b[j][i] >= 1)      #(1)
             if(i != j):
-                solver.Add(x[i] - x[j] + M * l[i][j] <= M - w[i])
-                solver.Add(y[i] - y[j] + M * b[i][j] <= M - d[i])
+                solver.Add(x[i] - x[j] + Mw * l[i][j] <= Mw - w[i])         #(2)
+                solver.Add(y[i] - y[j] + Md * b[i][j] <= Md - d[i])         #(3)
 
-        solver.Add(x[i] <= W - w[i])
-        solver.Add(y[i] + d[i]<= D)
+        solver.Add(x[i] <= W - w[i])                                        #(4)
+        solver.Add(y[i] + d[i]<= D)                                         #(5)
 
     #funzione obiettivo
     objective = solver.Objective()
@@ -39,6 +45,7 @@ def model2D(packages,cargo):
 
     #soluzione
     print(solver.Solve())
+
     print("larghezza camion: ",W)
     print("lunghezza migliore: ",D.solution_value())
     print ("larghezze: ",w)

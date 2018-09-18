@@ -1,0 +1,42 @@
+Rapporto sul numero di constraints e variabili impiegate nelle due versioni del modello 2D senza rotazione sviluppato.
+n=numero di pacchi da disporre
+
+VERSIONE 1
+
+n. variabili
+l: n^2
+b: n^2
+x: n
+y: n
+
+totale: 2(n^2 + n)
+
+n. constraint
+(1) : (n^2 - n)/2
+(2) : n^2 - n
+(3) : n^2 - n
+(4) : n
+(5) : n
+
+totale: (5n^2 - n)/2
+
+VERSIONE 2
+
+n. variabili
+s1: n^2
+s2: n^2
+s3: n^2
+s4: n^2
+x: n
+y: n
+
+totale: 2(2n^2 + n)
+
+n. constraint
+(1) : (n^2 - n)/2
+(2) : (n^2 - n)/2
+(3) : (n^2 - n)/2
+(4) : (n^2 - n)/2
+(5) : n
+(6) : n
+totale: (5n^2 - n)/2

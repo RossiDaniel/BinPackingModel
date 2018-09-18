@@ -1,0 +1,27 @@
+Rapporto sul numero di constraints e variabili impiegate nelle due versioni del modello 2D senza rotazione sviluppato.
+n=numero di pacchi da disporre
+ogni pacco è di dimensione 1*2
+la larghezza del camion è 3
+
+VERSIONE 1
+numero di secondi necessari per disporre gli n pacchi e soluzione:
+
+(2) :    2
+(3) :    2
+(4) :    4
+(5) :    4
+(6) :    4
+(7) :
+(8) :
+
+
+VERSIONE 2
+numero di secondi necessari per disporre gli n pacchi:
+
+(2) :    2
+(3) :    2
+(4) :    4
+(5) :    4
+(6) :    4
+(7) :
+(8) :
