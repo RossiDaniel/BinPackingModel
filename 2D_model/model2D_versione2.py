@@ -1,9 +1,9 @@
-from __future__ import print_function
 from ortools.linear_solver import pywraplp
 
 def model2D(packages,cargo):
     solver = pywraplp.Solver('Model2D', pywraplp.Solver.CBC_MIXED_INTEGER_PROGRAMMING)
     # importo dimensioni dei pacchi e del camion
+    M=1000
     n=len(packages)
 
     w =[packages[i].getW() for i in range(n)]
@@ -24,11 +24,11 @@ def model2D(packages,cargo):
     # definisco i constraints
     for i in range(n):
         for j in range(n):
-            if(i != j):
-                solver.Add(x[i] + w[i] <= x[j] + 10000000*(1-s1[i][j]))
-                solver.Add(y[i] + d[i] <= y[j] + 10000000*(1-s2[i][j]))
-                solver.Add(x[j] + w[j] <= x[i] + 10000000*(1-s3[i][j]))
-                solver.Add(y[j] + d[j] <= y[i] + 10000000*(1-s4[i][j]))
+            if(i < j):
+                solver.Add(x[i] + w[i] <= x[j] + M*(1-s1[i][j]))
+                solver.Add(y[i] + d[i] <= y[j] + M*(1-s2[i][j]))
+                solver.Add(x[j] + w[j] <= x[i] + M*(1-s3[i][j]))
+                solver.Add(y[j] + d[j] <= y[i] + M*(1-s4[i][j]))
                 solver.Add(s1[i][j]+s2[i][j]+s3[i][j]+s4[i][j]>=1)
         solver.Add(x[i] + w[i] <= W)
         solver.Add(y[i] + d[i] <= D)
@@ -39,7 +39,7 @@ def model2D(packages,cargo):
     objective.SetMinimization()
 
     #soluzione
-    solver.Solve()
+    print(solver.Solve())
     print("larghezza camion: ",W)
     print("lunghezza migliore: ",D.solution_value())
     print ("larghezze: ",w)
