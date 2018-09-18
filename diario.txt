@@ -1,0 +1,4 @@
+DIARIO
+
+17-09-2018
+Mattinata passata a leggere articoli accademici riguardanti il bin packing, in particolare tenendo conto che il problema può essere definito come strip packing con il pianale del camion di lunghezza infinita, ho trovato alcuni articoli accademici riportanti un modello che nel pomeriggio ho rimaneggiandolo e trascrivendolo in python con il framework google or-tools e ho creato alcuni oggetti per cercare di rendere più facile il testing.
