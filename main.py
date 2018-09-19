@@ -1,5 +1,7 @@
-# some_file.py
-from box import box
+import sys
+sys.path.insert(0, 'classi/box')
+
+from PythonExample.classi.box import box
 from cargo import cargo
 from model import model2D
 import random

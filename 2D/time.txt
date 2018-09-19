@@ -25,3 +25,6 @@ numero di secondi necessari per disporre gli n pacchi:
 (6) :    4
 (7) :
 (8) :
+
+al momento non è disponibile ne una soluzione per alcuni ne i tempi dato che i tempi non sono affidabili e le soluzioni
+di dimensioni più grandi non sono calcolabili in quanto il tempo di esecuzione è proibitivo
