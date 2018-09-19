@@ -2,3 +2,8 @@ DIARIO
 
 17-09-2018
 Mattinata passata a leggere articoli accademici riguardanti il bin packing, in particolare tenendo conto che il problema può essere definito come strip packing con il pianale del camion di lunghezza infinita, ho trovato alcuni articoli accademici riportanti un modello che nel pomeriggio ho rimaneggiandolo e trascrivendolo in python con il framework google or-tools e ho creato alcuni oggetti per cercare di rendere più facile il testing.
+articolo: Solving the 2D bin packing problem by means of a hybrid evolutionary algorithm
+
+18-09-2018
+Durante la mattinata ho rivisto il modello scritto il giorno precedente e ho cercato di capire per quale motivo le variabili che avrebberò dovuto assumere solo valori 0-1 assumevano invece anche valori decimali, problema dato dal solver utilizzato che eseguiva rilassamento, abbiamo sostiuito il solver con uno nuovo che operasse solo su valori interi e ho scritto poi un nuovo modello dopo aver letto un articolo, prima di pranzo funzionavano entrambi i modelli restituendo soluzioni entrabe ottime e logicamente uguali, ho fatto del testing e calcolato il numero di variabili impiegate e i constraint definiti dati n oggetti da disporre. A livello di prestazione non ci siamo per niente dobbiamo sicuramente migliorare la selezione dei bound.
+articolo: Exact algorithms for the two-dimensional strip packing problem with and without rotations
