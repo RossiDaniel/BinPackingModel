@@ -2,7 +2,7 @@ from __future__ import print_function
 from ortools.linear_solver import pywraplp
 import time
 
-def model2D(packages,cargo):
+def model(packages,cargo):
     solver = pywraplp.Solver('Model2D', pywraplp.Solver.CBC_MIXED_INTEGER_PROGRAMMING)
     # importo dimensioni dei pacchi e del camion
 
@@ -18,11 +18,11 @@ def model2D(packages,cargo):
     Mw=W+min(w)
 
     # definisco le variabili
-    s1 =[[solver.IntVar(0,1,"s1%d%d" % (i,j)) for i in range(n)] for j in range(n)]
-    s2 =[[solver.IntVar(0,1,"s2%d%d" % (i,j)) for i in range(n)] for j in range(n)]
-    s3 =[[solver.IntVar(0,1,"s3%d%d" % (i,j)) for i in range(n)] for j in range(n)]
-    s4 =[[solver.IntVar(0,1,"s4%d%d" % (i,j)) for i in range(n)] for j in range(n)]
-
+    s1 =[[solver.BoolVar("s1%d%d" % (i,j)) for i in range(n)] for j in range(n)]
+    s2 =[[solver.BoolVar("s2%d%d" % (i,j)) for i in range(n)] for j in range(n)]
+    s3 =[[solver.BoolVar("s3%d%d" % (i,j)) for i in range(n)] for j in range(n)]
+    s4 =[[solver.BoolVar("s4%d%d" % (i,j)) for i in range(n)] for j in range(n)]
+    r =[solver.BoolVar("s4%d%d" % (i,j)) for i in range(n)]
     x =[solver.IntVar(0,solver.infinity(),"x%d" % i) for i in range(n)]
     y =[solver.IntVar(0,solver.infinity(),"y%d" % i) for i in range(n)]
 
@@ -30,13 +30,13 @@ def model2D(packages,cargo):
     for i in range(n):
         for j in range(n):
             if(i < j):
-                solver.Add(x[i] + w[i] <= x[j] + Mw*(1-s1[i][j]))           #(1)
-                solver.Add(y[i] + d[i] <= y[j] + Md*(1-s2[i][j]))           #(2)
-                solver.Add(x[j] + w[j] <= x[i] + Mw*(1-s3[i][j]))           #(3)
-                solver.Add(y[j] + d[j] <= y[i] + Md*(1-s4[i][j]))           #(4)
-                solver.Add(s1[i][j]+s2[i][j]+s3[i][j]+s4[i][j]>=1)          #(5)
-        solver.Add(x[i] + w[i] <= W)                                        #(6)
-        solver.Add(y[i] + d[i] <= D)                                        #(6)
+                solver.Add(x[i] + w[i]*(1-r[i]) + d[i]*r[i] <= x[j] + Mw*(1-s1[i][j]))           #(1)
+                solver.Add(y[i] + d[i]*(1-r[i]) + w[i]*r[i] <= y[j] + Md*(1-s2[i][j]))           #(2)
+                solver.Add(x[j] + w[j]*(1-r[j]) + d[j]*r[j] <= x[i] + Mw*(1-s3[i][j]))           #(3)
+                solver.Add(y[j] + d[j]*(1-r[j]) + w[j]*r[j] <= y[i] + Md*(1-s4[i][j]))           #(4)
+                solver.Add(s1[i][j]+s2[i][j]+s3[i][j]+s4[i][j]>=1)                               #(5)
+        solver.Add(x[i] + w[i]*(1-r[i]) + d[i]*r[i] <= W)                                        #(6)
+        solver.Add(y[i] + d[i]*(1-r[i]) + w[i]*r[i] <= D)                                        #(7)
 
     #funzione obiettivo
     objective = solver.Objective()
