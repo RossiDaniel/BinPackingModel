@@ -14,3 +14,6 @@ Durante la mattina ho per prima cosa riorganizzato alcuni file e ho aggiunto alc
 20-09-2018
 Durante la mattina ho riprovato a configurare OR-TOOLS con SCIP ma ancora senza successo, su consiglio di Nicola abbiamo continuato ad utilizzare   SCIP ma con una libreria che permettesse di scrivere i modelli in linguaggio Python, ho passato il resto della mattina traducendo i modelli realizzati durante gli scorsi giorni con jupyter utilizzando SCIP, durante il pomeriggio ho iniziato a leggere/ cercare di capire un articoli passatomi da Nicola con l'obiettivo di capire se esistesse un modo per migliorare le regole di branching affinché riuscissimo a raggiungere la soluzione ottima con tempi ragionevoli.
 articolo: Exact Algorithms for the 2-Dimensional Strip Packing Problem with and without Rotations sezione 4 in poi
+
+21-09-2018
+Dopo aver letto nuovamente l'articolo riportato ieri oggi sono andato a cercare di capire come realizzare un plugin per SCIP, cercando di modificare le regole di branching e bounding, nella tarda mattinata ho parlato con Nicola e abbiamo deciso di abbandonare la ricerca e concentrarci sul limitare il tempo con cui cercare di trovare una soluzione ottima, utilizzando una ventina di secondi, ho poi utilizzato il framework PuLP per riscrivere i modelli con il solver CBC e sia in Or-Tools sia in PuLP ho riportato il tempo limite.
