@@ -10,3 +10,7 @@ articolo: Exact algorithms for the two-dimensional strip packing problem with an
 
 19-09-2018
 Durante la mattina ho per prima cosa riorganizzato alcuni file e ho aggiunto alcuni constraints al modello 2D per inserire anche la rotazione di alcuni oggetti, ho poi imparato ad utilizzare jupyter per poter utilizzare una libreria con cui mostrare la disposizione degli oggetti, ho passato il pomeriggio a cercare di interfacciare OR-TOOLS con SCIP per cercare di migliorare le prestazioni cambiando il solver, missione fallita sfortunatamente :(
+
+20-09-2018
+Durante la mattina ho riprovato a configurare OR-TOOLS con SCIP ma ancora senza successo, su consiglio di Nicola abbiamo continuato ad utilizzare   SCIP ma con una libreria che permettesse di scrivere i modelli in linguaggio Python, ho passato il resto della mattina traducendo i modelli realizzati durante gli scorsi giorni con jupyter utilizzando SCIP, durante il pomeriggio ho iniziato a leggere/ cercare di capire un articoli passatomi da Nicola con l'obiettivo di capire se esistesse un modo per migliorare le regole di branching affinché riuscissimo a raggiungere la soluzione ottima con tempi ragionevoli.
+articolo: Exact Algorithms for the 2-Dimensional Strip Packing Problem with and without Rotations sezione 4 in poi
