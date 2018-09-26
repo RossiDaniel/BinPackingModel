@@ -20,3 +20,6 @@ Dopo aver letto nuovamente l'articolo riportato ieri oggi sono andato a cercare 
 
 24-09-2018
 Durante la mattinata ho cercato di scoprire se Or-Tolls potesse restituirci upper bound e lower bound ma non sono riuscito a trovare metodi che permettessero di farlo, mi sono buttato allora sul modello 3D e entro fine giornata era disponibile un qualcosina, ho scelto di proseguire tenendo in cosiderazione il modello versione 1, inserendo quindi una nuova variabile t[i][j] che è true se l'oggetto i è sotto l'oggetto j, sono insorti problemi riguardanti il fatto che, mentre prima se due oggetti erano staccati non era un problema ora se due oggetti uno sopra l'altro sono staccati significa che quello sopra sta "volando" cosa assolutamente inaccettabile per il nostro modello, sono riuscito a risolvere questo problema e ad imporre agli oggetti che non fossero sopra ad altri oggetti di essere attaccati al pianale, oggi cercherò di migliorare questi vincoli.
+
+25-09-2018
+Ho lavorato la mattinata per cercare di migliorare il modello 3D, la visione delle soluzioni 3D in un modello 2D impediva però un buon debugging quindi Nicola mi ha fornito la libreria dell'azienda con i loro pacchi per ottenere un modello 3D utilizzabile, questo premesso che riuscissi ad installare la libreria boost nel mio pc, lavoro in corso d'opera.
