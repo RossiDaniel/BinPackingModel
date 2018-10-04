@@ -1,0 +1,7 @@
+\begin{tabular}{lrrrrrrrrrrrrrrr}
+\toprule
+{} &     AA &   AD &     AT &     AW &  MaxA &    MaxT &   MinA &    MinT &  ObEu &  ObMd &  maxD &  maxW &  minD &  minW &  n \\
+\midrule
+0 &  1.483 &  2.3 &  8.266 &  0.667 &   2.0 &  17.542 &  1.225 &  15.944 &    4 &    4 &  2.45 &   1.0 &   2.0 &   0.5 &  6 \\
+\bottomrule
+\end{tabular}

@@ -1,16 +1,3 @@
-
-'''
-
-test con 6 item
-2,1, 1.5 : 2
-0.5, 0.5, 2 : 2
-0.5, 0.5, 1 : 3
-0.5, 1, 2 : 3
-
-'''
-
-
-
 def tc_sfida():
 	item_list = []
 	bin_list = []
@@ -32,15 +19,8 @@ def tc_sfida():
 		item.weight = 4
 		item_list.append(item)
 
-	for i in range(4,7):
+	for i in range(4,6):
 		item = BP.Item(i, 0.5, 0.5, 1)
-		item.stackable = False
-		item.order_id = 1
-		item.weight = 4
-		item_list.append(item)
-
-	for i in range(7,10):
-		item = BP.Item(i, 0.5, 1, 2)
 		item.stackable = False
 		item.order_id = 1
 		item.weight = 4
